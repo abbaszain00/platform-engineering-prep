@@ -1,9 +1,9 @@
 #!/bin/bash
-echo "$(date)" >> healthcheck.log
-echo "$(hostname)" >> healthcheck.log
-echo "$(uptime)" >> healthcheck.log
-echo "$(df -h)" >> healthcheck.log
-echo "$(head -n 5 top)" >> healthcheck.log
+date >> healthcheck.log
+hostname >> healthcheck.log
+uptime >> healthcheck.log
+(df -h) >> healthcheck.log
+ps aux | sort -k4 -nr | head -n 5 >> healthcheck.log
 echo "Health check complete"
 
 
